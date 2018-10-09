@@ -1,0 +1,14 @@
+#activities {
+	height: 250px;
+	overflow: scroll;
+	border: 2px solid;
+	padding: 15px;
+}
+
+.color {
+	color: red;
+}
+
+.activity {
+	color: green;
+}

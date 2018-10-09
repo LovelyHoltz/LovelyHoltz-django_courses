@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title>Login and Registration</title>
+</head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        {{ message.message }}
+      {% endfor %}
+    {% endif %}
+    <h2>Welcome, {{ user.first_name }}</h2>
+    <a href="/books/add">Add Book and Review</a>
+    <a href="/logout">Log Out</a>
+    <div class="section">
+      <h4>Recent Book Reviews:</h4>
+      {% for review in recent_reviews %}
+        <p><a href="/books/{{review.book.id}}">{{ review.book.title }}</a></p>
+        <p>Rating: {{ review.rating }}</p>
+        <p><a href="/users/{{ review.user.id }}">{{ review.user.alias }}</a> says: {{ review.review }}</p>
+        <p>Posted on: {{ review.created_at }}</p>
+      {% endfor %}
+    </div>
+    <div class="section">
+      <h4>Other Books with Reviews:</h4>
+      {% for book in books %}
+        <p><a href="/books/{{book.id}}">{{ book.title }}</a><p>
+      {% endfor %}
+    </div>
+    <form action='/logout' method='post'>
+      {% csrf_token %}
+      <input type='submit' value='Log Out'>
+    </form>
+  </body>
+</html>

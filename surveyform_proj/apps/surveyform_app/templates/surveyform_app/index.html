@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      {% load staticfiles %}
+      <meta charset='utf-8'>
+      <title>Survey Form Assignment</title>
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  </head>
+  <body>
+    <main class="container">
+    <h1>Survey Form</h1>
+    <div class="row">
+      <div class="col s12">
+        <form action="/new_user" method="POST">
+          {% csrf_token %}
+          Name:
+        <input type ="text" name="user_name"></input>
+      </div>
+      <div class="col s12">
+          Dojo Location:
+        <select type="text" name="dojo_location">
+          <option value="silicon valley">Silicon Valley</option>
+          <option value="seattle">Seattle</option>
+          <option value="losangeles">Los Angeles</option>
+          <option value="Dallas">Dallas</option>
+          <option value="washington">Washington DC</option>
+          <option value="chicago">Chicago</option>
+        </select>
+      </div>
+      <div class="col s12">
+        Favorite Language:
+        <select type="text" name="fav_language">
+          <option value="java">Java Script</option>
+          <option value="python">Python</option>
+          <option value="mean">Mean</option>
+          <option value="ruby">Ruby Rails</option>
+        </select>
+      </div>
+      <div class="col s12">
+        Comment:
+        <input type ="text" name="user_comment">
+      </div>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </body>
+
+</html>

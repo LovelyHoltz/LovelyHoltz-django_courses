@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>BELT REVIEW ASSIGNMENT</title>
+    <style type="text/css">
+      .error{
+          color:red;
+      }
+      .success{
+        color:green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome Book Lovers!<h1>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <h1>Register<h1>
+    <form action="/register" method="POST">
+      {% csrf_token %}
+        <input type="text" name="first_name" placeholder="First Name">
+        <input type="text" name="last_name" placeholder="Last Name">
+        <input type="text" name="email" placeholder="Email Address">
+        <input type="text" name="password" placeholder= "Password">
+        <input type="text" name="confirm_password" placeholder="Confirm Password">
+        <input type="submit" name="">
+    </form>
+    <h1>Login<h1>
+    <form action="/login" method="POST">
+      {% csrf_token %}
+        <input type="text" name="email" placeholder="Email Address">
+        <input type="text" name="password" placeholder="Password">
+        <input type="submit" name="">
+    </form>
+  </body>
+</html>

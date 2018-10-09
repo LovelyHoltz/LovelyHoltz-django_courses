@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+        <title>Random Word Generator</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Random Word Generator</h1>
+            <h3>(attempt # {{ request.session.counter }})</h3>
+            <div id="randomgenholder"></div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                {{ random_word }}
+              </div>
+            </div>
+            <form action='/random_gen_word' method="POST">
+                {% csrf_token %}
+                <input type="submit" name="submit" value="Generate" class="btn btn-default navbar-btn">
+            </form>
+            <form action='/resetword' method='POST'>
+                {% csrf_token %}
+                <input type="submit" name="submit" value="Reset" class="btn btn-default navbar-btn">
+            </form>
+        </div>
+    </body>
+</html>

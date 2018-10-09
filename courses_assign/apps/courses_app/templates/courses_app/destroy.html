@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Deleting a Course</title>
+  </head>
+  <body>
+      <div class="container">
+        <h1>Are You sure you want to delete the following course?</h1>
+        <h2>Course Name: {{course.course_name}}</h2>
+        <h2>Description: {{course.description}}</h2>
+      <form class="row" action="/delete/{{course.id}}" method="POST">
+        {% csrf_token %}
+        <input type="submit" name="submit" value="YES">
+        <input type="submit" name="submit" value="NO">
+      </form>
+      </div>
+  </body>
+</html>

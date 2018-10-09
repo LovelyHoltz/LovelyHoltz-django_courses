@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login and Registration</title>
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        {{ message.message }}
+      {% endfor %}
+    {% endif %}
+
+    <a href="/books">Home</a>
+    <a href="/logout">Log Out</a>
+
+    <h2>Add a New Book Title and a Review</h2>
+    <form action='/books/submit' method='post'>
+      {% csrf_token %}
+      Book Title: <input type='text' name='title'>
+      <p>Author</p>
+      <select name="author-from-list">
+        {% for author in authors %}
+          <option value="{{ author.author }}">{{ author.author }}</option>
+        {% endfor %}
+      </select>
+      Or add a new author: <input type='text' name='author'>
+      Review: <textarea rows="4" cols="50" name="review"></textarea>
+      Rating: <select name="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option selected="selected" value="5">5</option>
+              </select> stars
+      <input type='submit' value='Add Book and Review'>
+    </form>
+
+  </body>
+</html>

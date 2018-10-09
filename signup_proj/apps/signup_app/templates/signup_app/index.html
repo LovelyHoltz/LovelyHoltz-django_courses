@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charser="UTF-8">
+        <meta name="viewport" context="width=device-width, initial-scale=1">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'registration/style.css' %}">
+    </head>
+    <body>
+      <div class="container">
+            <h1>Hello and Welcome</h1>
+            <hr>
+            <h2>Register</h2>
+            {% if fruits %}
+            <ul>
+                {% for fruit in fruits %}
+                    <li>{{ fruit }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <form action='signup' method="POST">{% csrf_token %}
+                <div class="form-group">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name">
+                </div>
+                <div class="form-group">
+                  <label for="last_name">Last Name:</label>
+                  <input type="text" name="last_name">
+                </div>
+                <div class+"form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username">
+                </div>
+                <input type="submit" value="Register" class='btn btn-primary'>
+            </form>
+          </div>
+    </body>
+</html>

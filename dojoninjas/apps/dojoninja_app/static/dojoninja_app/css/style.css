@@ -1,0 +1,15 @@
+h1 {
+  font-size: 35px;
+  color: red;
+}
+h2 {
+  font-size:25px;
+  color: blue;
+}
+th {
+  text-indent: 50px;
+  font-size: 20px;
+}
+tbody {
+  text-indent: 80px;
+}

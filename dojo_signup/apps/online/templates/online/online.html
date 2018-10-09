@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="">
+    <title></title>
+</head>
+<body>
+    <h1>Sign Up!</h1>
+    <form action="/process" method="POST">
+      {% csrf_token %}
+      <p>Name:<input type="text" name="name"></p>
+      <p>Email: <input type="text" name="email"></p>
+      <p>Are You A Robot? <input type="checkbox" name="robot"></p>
+      <p>Select Stack
+          <select name="stack.id">
+            {% for stack in all_stacks %}
+            <option value="{{ stack.id }}">{{ stack }}</option>
+            {% endfor %}
+          </select>
+      </p>
+      <p><input type="submit" value="Sign Up!"></p>
+    </form>
+    <ul>
+        {% for user in all_users %}
+        <li>{{ user.say_hello }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
